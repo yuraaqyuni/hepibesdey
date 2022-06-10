@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cie ada yang ultah..</title>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark/dark.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="fire.css" rel="stylesheet" type="text/css" />
+		<style>
+		.nyala{
+			/*display: none;*/
+			opacity: 1;
+		}
+
+		</style>
+	</head>
+	<body>
+		<div class="kontener">
+			<div class="all" id="all">
+			</div>
+			<div id="wrapper" class="wrapper">
+			    <button id="btn" class="neons" type="button" onclick="myFunction();play();">Nyalain Lampu!</button>
+			</div>
+			<section class="zoom">
+				<img src="1.png" id="layer1">
+				<img src="2.png" id="layer2">
+				<img src="text3.png" id="teks">
+			</section>
+			<section class="content" id="content">
+				<div class="pyro" id="fire">
+				  <div class="before"></div>
+				  <div class="after"></div>
+				</div>
+				<h2>Cieeee Ultaaah tuuun</h2>
+				<p>Eaaa kaka tambah gaeeek</p>
+				<p>Sory soryy, untuk sekarang nggak ada surat 4 halaman, ya tpi ada surat sih ini tp mungkin nggak 4 halaman sih, nggak tau lah pokoknya gitu, klik yaaak</p>
+				<div id='Content' style="display:none">
+					<blockquote><p id="text"></p><p id="text2"></p><p id="text6"></p><p id="text7"></p><p id="text8"></p></blockquote>
+				</div>
+				<div id="tombo" class="content2">
+					<div id="lopdeg" class="ct1">
+						<label class='lovein' onClick="bukasurat();nonTo()">&#9993;</label>
+					</div>
+				</div>
+
+			</section>
+		</div>
+		
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="script.js"></script>
+
+		<script type="text/javascript">
+			//untuk pas refresh balik atas
+            window.onbeforeunload = function () {
+			  window.scrollTo(0, 0);
+			}
+
+			//untuk button nyalain
+			const btn = document.getElementById('btn');
+			btn.style.display = 'none';
+			btn.addEventListener('click', () => {
+			  btn.style.display = 'none';
+			});
+
+			var x=1;
+			var element = document.getElementById('all');
+
+			//untuk perlahan2 menghilangkan image paling atas
+			function moreVisible(){
+				var elem = document.getElementById('all');
+			    x-=0.05;
+			    elem.style.opacity=x;
+			}
+
+			function yourFunction(){
+				element.style.display = 'none';
+			}
+
+			function myFunction() {
+				var t=setInterval(moreVisible,50);
+				var timeout = setTimeout(function(){yourFunction()},1000);
+			}
+
+			//untuk animasi balon pas skrol
+			var layer1=document.getElementById('layer1')
+			scroll=window.pageYOffset;
+			document.addEventListener('scroll',
+				function(e){
+					var offset=window.pageYOffset;
+					scroll=offset;
+					layer1.style.width=(100+scroll/5)+'%';
+				})
+			var layer2=document.getElementById('layer2')
+			scroll=window.pageYOffset;
+			document.addEventListener('scroll',
+				function(e){
+					var offset=window.pageYOffset;
+					scroll=offset;
+					layer2.style.width=(100+scroll/5)+'%';
+					layer2.style.left=(scroll/50)+'%';
+				})
+			var text=document.getElementById('text')
+			scroll=window.pageYOffset;
+			document.addEventListener('scroll',
+				function(e){
+					var offset=window.pageYOffset;
+					scroll=offset;
+					layer2.style.width=(100+scroll/5)+'%';
+					teks.style.top=(-scroll/20)+'%';
+				})
+			
+			// untuk scroll	langsung ke bawah
+			$("button").click(function() {
+			    $('html,body').animate({
+			        scrollTop: $(".content").offset().top},4000);
+			});
+
+
+			function play() {//Link Audio Bisa Diganti
+				var audio = new Audio('song.mp3');audio.play();audio.loop=true;audio.addEventListener('ended', function() {this.currentTime = 0;this.play();}, false);
+			} 
+
+			// untuk modal awal
+			var today = new Date();var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear()+'.';var dateTime = date;
+            const swals = Swal.mixin({
+                confirmButtonColor: '#003EFF', cancelButtonColor: '#FF0040', allowOutsideClick: false,
+            });
+
+            async function mulai(){    
+            	await swals.fire({
+            		title:'Pssstt.. this is a secret site!', 
+            		backdrop:`
+            		rgba(0,0,0,0.9)
+            		url("blue-cat.gif") 
+            		top center
+            		no-repeat`
+            	});
+            	var { isConfirmed: spesial } = await swals.fire({
+	            		title:'Only my special person can enter this site.', 
+	            		text:'Are youuu?',
+	            		backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("cool.gif") 
+	            		top center
+	            		no-repeat`,
+	            		showCancelButton: true,
+	            		confirmButtonText: 'Yes I am!',
+					  	cancelButtonText: 'No, Im not',
+	            	});
+            	if(spesial){
+				  } else {
+				    await swals.fire('byeeeeeeeeeeeee this site is not for you &#9995');
+				    return;
+				}
+                var { isConfirmed: day } = await swals.fire({
+	            		title:'Is today your special day?', 
+	            		backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("ask.gif") 
+	            		top center
+	            		no-repeat`,
+	            		showCancelButton: true,
+	            		confirmButtonText: 'Yeaaahh',
+					  	cancelButtonText: 'Noo',
+	            	});
+            	if(day){
+				  } else {
+				    await swals.fire('sorry, you can only enter this site at your special day &#128557');
+				    return;
+				}
+                cek();
+            }            
+            mulai();
+
+			async function cek(){
+                var { value: nama } = await swals.fire({
+                    title: 'Tell me your name',
+                    input: 'text',
+                    confirmButtonText: 'Next',
+                    showCancelButton: false,
+                    backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("name.gif") 
+	            		top center
+	            		no-repeat`,
+                });                           
+                if(nama == "siti" || nama == "rahmah" || nama == "siti rahmah" || nama=="kaka"){
+	                await swals.fire({
+	            		title:'Uwuwuwuwuuuuu kakaaa', 
+	            		backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("hug.gif") 
+	            		top center
+	            		no-repeat`
+	            	});    
+	            	await swals.fire({
+	            		title:'kaka hepibesdey harini yaaa', 
+	            		backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("hehe.gif") 
+	            		top center
+	            		no-repeat`
+	            	});                
+                    await swals.fire('Okee nyalain lampu dulu yaa');       
+                    muncul();   
+                } else {
+                    await swals.fire({
+                    title: 'Whoo aree youu, that`s not my special person name &#128580',
+                    confirmButtonText: 'Let me try it again',
+                    showCancelButton: false,
+                    backdrop:`
+	            		rgba(0,0,0,0.9)
+	            		url("sus2.gif") 
+	            		top center
+	            		no-repeat`,
+                	});
+                    cek();
+                }
+            }
+            function muncul(){
+	            btn.style.display = 'flex';
+			}
+
+			async function bukasurat(){
+				text = "Hepibesdey kakaa... Im so happieeh det i still can say hepibesdey to yu untuk kedua kalinya~ ea. Sowi edisi kali ini tidak ada surat 4 halaman, aku hanya bisa memberi ucapan melalui ini padamuuh~. Jika menemukan bug/error bisa diinfokan kembali ya mba @rahmah, terima kasih, WKWKWK";
+                text2 = "okey okey sekipp. yeah sebenarnya ku selalu mendoakanmu di hari lain ya terkhusus hari ini kudoakanlah secara lisan dan tulisan ea. Soo happy level up of lyfe ngkaka, smoga smuanya ikut terlevel upp, your happiness, your skillness, your salariness....WKWKWKW pokoknya evriting that yu want yu got itt okay, you want it, you got it. Begitu ea.";
+                text6 = "OKee mungkin itu saja terlebih dan terkurang saya mon maap, yeah biasanya aku klo lg sperti ini pengakuan dosa sih ya, keek yeah im sowii kalo aku masih banyak salah banyak mengambek dan segala macam kepadamu, masih sering bikin ngkaka tersedih yaa.. Ku sudah lama tidak berkata2 melow but thank youu for being my fren until now yaa..";
+                text7 = "okee itu sajaa kepanjangann ntar bener jadi 4 halaman lagi, WKWK sekali lagi kuucepkann.. ";
+                text8 = "H A P P Y  B E S D E Y Y";
+                
+                ketik();showDiv();
+			}
+		</script>
+
+	</body>
+</html>
